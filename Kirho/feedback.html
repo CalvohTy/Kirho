@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback Page</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 15px;
+        background-color: #ca9503; /* Dark Yellow */
+    }
+    header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 98%;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+    z-index: 1000;
+}
+
+.logo span{
+    color: #f8be1f;
+    margin: 0;
+}
+.logo h1 {
+    margin: 0;
+    color: #ca9503;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 10px 0 25px;
+}
+
+.navbar ul li {
+    display: inline-block;
+    margin-right: 35px;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.navbar ul li:last-child {
+    margin-right: 0;
+}
+
+.navbar ul li a {
+    color: #f8be1f;
+    text-decoration: none;
+}
+.navbar ul li a:hover {
+    font-weight: bold;
+    color: #ffffff8e;
+}
+.navbar ul li a::after{
+    content: "";
+  position: absolute;
+  bottom: -0.3rem;
+  left: 50%;
+  width: 0;
+  height: 0.15rem;
+  transform: translateX(-50%);
+  background-color: #ffa500;
+  transition: all 0.5s ease;
+}
+.navbar ul li a:hover::after {
+    width: 75%;
+}
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    h1 {
+    text-align: center;
+    font-weight: bold;
+    text-align: center;
+    background: #1b1a18;
+    border-radius: 15px;
+    border-width: 1dvh;
+    color: #ca9503;
+    }
+
+    form {
+        margin-bottom: 20px;
+    }
+
+    textarea {
+        width: 100%;
+        height: 100px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #333;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    .feedback-item {
+        display: inline-block;
+        width: calc(33.33% - 20px);
+        margin-right: 20px;
+        vertical-align: top;
+        background-color: #f9f9f9;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+
+    .feedback-text {
+        margin-bottom: 10px;
+    }
+
+    .customer-name {
+        font-weight: bold;
+        margin-right: 10px;
+    }
+
+    .stars {
+        display: flex;
+    }
+
+    .star {
+        color: gold;
+    }
+
+    .rating {
+        margin-top: 20px;
+    }
+
+    .rating input[type="radio"] {
+        display: none;
+    }
+
+    .rating label {
+        display: inline-block;
+        font-size: 24px;
+        color: #ccc;
+        cursor: pointer;
+    }
+
+    .rating input[type="radio"]:checked + label {
+        color: gold;
+    }
+
+    .message {
+        display: none;
+        text-align: center;
+        margin-top: 20px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1><span>KIRHO </span>STUDIOS</h1>
+        </div>
+        <button class="menu-toggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
+        <nav class="navbar">
+            <ul>
+                <li><a href="./KiRho.html">Home</a></li>
+                <li><a href="./KiRho.html">About</a></li>
+                <li><a href="./KiRho.html">Packages</a></li>
+                <li><a href="./KiRho.html">Products</a></li>
+                <li><a href="Contacts.html">Contacts</a></li>
+                <li><a href="feedback.html">FeedBack</a></li>
+                <li><a href="new website.html">LogIn</a></li>
+            </ul>
+            
+
+        </nav>
+    </header>
+
+
+<div class="container">
+    <h1>Feedback Page</h1>
+    <form id="feedbackForm">
+        <textarea id="feedbackText" placeholder="Enter your feedback here..."></textarea>
+        <div class="rating">
+            Rate your experience:
+            <input type="radio" id="star5" name="rating" value="5">
+            <label for="star5">★</label>
+            <input type="radio" id="star4" name="rating" value="4">
+            <label for="star4">★</label>
+            <input type="radio" id="star3" name="rating" value="3">
+            <label for="star3">★</label>
+            <input type="radio" id="star2" name="rating" value="2">
+            <label for="star2">★</label>
+            <input type="radio" id="star1" name="rating" value="1">
+            <label for="star1">★</label>
+        </div>
+        <button type="submit">Submit Feedback</button>
+    </form>
+    <div id="feedbackList">
+        <div class="feedback-item good-feedback">
+            <div class="feedback-text">Great website! Very informative and well-designed.</div>
+            <div class="stars">
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+            </div>
+            <div class="customer-name">John Doe</div>
+        </div>
+        <div class="feedback-item good-feedback">
+            <div class="feedback-text">I love the content! It's exactly what I was looking for.</div>
+            <div class="stars">
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+            </div>
+            <div class="customer-name">Jane Smith</div>
+        </div>
+        <div class="feedback-item good-feedback">
+            <div class="feedback-text">This website helped me a lot. Thank you!</div>
+            <div class="stars">
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+            </div>
+            <div class="customer-name">Alice Johnson</div>
+        </div>
+    </div>
+    <div class="message" id="thankYouMessage">Thank you for your feedback!</div>
+</div>
+<script>
+    const feedbackForm = document.getElementById('feedbackForm');
+    const feedbackText = document.getElementById('feedbackText');
+    const feedbackList = document.getElementById('feedbackList');
+    const thankYouMessage = document.getElementById('thankYouMessage');
+
+    feedbackForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const feedback = feedbackText.value.trim();
+        const rating = document.querySelector('input[name="rating"]:checked');
+
+        if (feedback !== '' && rating) {
+            const feedbackItem = document.createElement('div');
+            feedbackItem.classList.add('feedback-item');
+            feedbackItem.innerHTML = `
+                <div class="feedback-text">${feedback}</div>
+                <div class="stars">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <div class="customer-name">Anonymous</div>
+            `;
+            feedbackList.appendChild(feedbackItem);
+            feedbackText.value = '';
+            rating.checked = false;
+            thankYouMessage.style.display = 'block';
+            setTimeout(function() {
+                thankYouMessage.style.display = 'none';
+            }, 3000); // 3 seconds
+        }
+    });
+    document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navbar = document.querySelector('.navbar ul');
+
+    menuToggle.addEventListener('click', () => {
+        navbar.classList.toggle('open');
+        const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+        menuToggle.setAttribute('aria-expanded', !expanded);
+    });
+
+    // Close the menu when clicking outside
+    document.addEventListener('click', (event) => {
+        if (!menuToggle.contains(event.target) && !navbar.contains(event.target)) {
+            navbar.classList.remove('open');
+            menuToggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+});
+
+</script>
+</body>
+</html>
